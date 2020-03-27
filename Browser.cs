@@ -36,9 +36,11 @@ namespace ChromiumBrowser
         {
             Tabs.Dock = DockStyle.Bottom;
             Tabs.Height = ClientRectangle.Height - 50;
+            Tabs.TabPages.Clear();
+            AddBrowserTab();
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void AddBrowserTab()
         {
             TabPage newTab = new TabPage();
             browser = new ChromiumWebBrowser("www.google.com");
@@ -46,6 +48,11 @@ namespace ChromiumBrowser
             newTab.Controls.Add(browser);
             Tabs.Controls.Add(newTab);
             browser.Dock = DockStyle.Fill;
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            AddBrowserTab();
         }
 
         private void Browser_Resize(object sender, EventArgs e)
