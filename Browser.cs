@@ -40,6 +40,8 @@ namespace ChromiumBrowser
             AddBrowserTab();
         }
 
+        
+        
         private void AddBrowserTab()
         {
             TabPage newTab = new TabPage();
@@ -58,6 +60,14 @@ namespace ChromiumBrowser
         private void Browser_Resize(object sender, EventArgs e)
         {
             Tabs.Height = ClientRectangle.Height - 50;
+        }
+
+        private void Tabs_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                MessageBox.Show("Right click!");
+            }
         }
     }
 }

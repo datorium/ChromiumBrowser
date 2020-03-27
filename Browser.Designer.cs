@@ -64,6 +64,7 @@
             this.Tabs.SelectedIndex = 0;
             this.Tabs.Size = new System.Drawing.Size(749, 329);
             this.Tabs.TabIndex = 2;
+            this.Tabs.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Tabs_MouseClick);
             // 
             // tabPage1
             // 
