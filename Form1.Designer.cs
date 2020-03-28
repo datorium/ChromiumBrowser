@@ -1,6 +1,6 @@
 ﻿namespace ChromiumBrowser
 {
-    partial class Form1
+    partial class Browser
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,86 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.buttonGo = new System.Windows.Forms.Button();
+            this.AddressBar = new System.Windows.Forms.TextBox();
+            this.Tabs = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Tabs.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // buttonGo
+            // 
+            this.buttonGo.Location = new System.Drawing.Point(12, 12);
+            this.buttonGo.Name = "buttonGo";
+            this.buttonGo.Size = new System.Drawing.Size(49, 41);
+            this.buttonGo.TabIndex = 0;
+            this.buttonGo.Text = "Go";
+            this.buttonGo.UseVisualStyleBackColor = true;
+            this.buttonGo.Click += new System.EventHandler(this.buttonGo_Click);
+            // 
+            // AddressBar
+            // 
+            this.AddressBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddressBar.Location = new System.Drawing.Point(67, 12);
+            this.AddressBar.Name = "AddressBar";
+            this.AddressBar.Size = new System.Drawing.Size(347, 38);
+            this.AddressBar.TabIndex = 1;
+            // 
+            // Tabs
+            // 
+            this.Tabs.Controls.Add(this.tabPage1);
+            this.Tabs.Controls.Add(this.tabPage2);
+            this.Tabs.Location = new System.Drawing.Point(12, 74);
+            this.Tabs.Name = "Tabs";
+            this.Tabs.SelectedIndex = 0;
+            this.Tabs.Size = new System.Drawing.Size(807, 396);
+            this.Tabs.TabIndex = 2;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(799, 367);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(192, 71);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // Browser
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(831, 482);
+            this.Controls.Add(this.Tabs);
+            this.Controls.Add(this.AddressBar);
+            this.Controls.Add(this.buttonGo);
+            this.Name = "Browser";
             this.Text = "Form1";
+            this.Resize += new System.EventHandler(this.Browser_Resize);
+            this.Tabs.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button buttonGo;
+        private System.Windows.Forms.TextBox AddressBar;
+        private System.Windows.Forms.TabControl Tabs;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
 

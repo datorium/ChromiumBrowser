@@ -7,14 +7,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CefSharp;
+using CefSharp.WinForms;
 
 namespace ChromiumBrowser
 {
-    public partial class Form1 : Form
+    public partial class Browser : Form
     {
-        public Form1()
+
+        public ChromiumWebBrowser browser;
+
+        public Browser()
         {
             InitializeComponent();
+            InitializeBrowser();
+            InitializeTabs();
+        }
+        
+        private void InitializeTabs()
+        {
+            Tabs.Dock = DockStyle.Bottom;
+            Tabs.Height = ClientRectangle.Height - 50;
+        }
+
+        public void InitializeBrowser()
+        {
+            Cef.Initialize(new CefSettings());
+            //browser = new ChromiumWebBrowser("www.google.com");
+            //this.Controls.Add(browser);
+            //browser.Dock = DockStyle.Fill;
+        }
+
+        private void buttonGo_Click(object sender, EventArgs e)
+        {
+            browser.Load(AddressBar.Text);
+        }
+
+        private void Browser_Resize(object sender, EventArgs e)
+        {
+            Tabs.Height = ClientRectangle.Height - 50;
         }
     }
 }
