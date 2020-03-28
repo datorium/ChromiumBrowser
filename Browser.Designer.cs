@@ -33,6 +33,7 @@
             this.Tabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonAddTab = new System.Windows.Forms.Button();
             this.Tabs.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,16 +80,27 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 71);
+            this.tabPage2.Size = new System.Drawing.Size(799, 367);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // buttonAddTab
+            // 
+            this.buttonAddTab.Location = new System.Drawing.Point(420, 12);
+            this.buttonAddTab.Name = "buttonAddTab";
+            this.buttonAddTab.Size = new System.Drawing.Size(49, 41);
+            this.buttonAddTab.TabIndex = 3;
+            this.buttonAddTab.Text = "+";
+            this.buttonAddTab.UseVisualStyleBackColor = true;
+            this.buttonAddTab.Click += new System.EventHandler(this.buttonAddTab_Click);
             // 
             // Browser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(831, 482);
+            this.Controls.Add(this.buttonAddTab);
             this.Controls.Add(this.Tabs);
             this.Controls.Add(this.AddressBar);
             this.Controls.Add(this.buttonGo);
@@ -108,6 +120,7 @@
         private System.Windows.Forms.TabControl Tabs;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button buttonAddTab;
     }
 }
 

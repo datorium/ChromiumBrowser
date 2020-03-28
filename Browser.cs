@@ -33,9 +33,6 @@ namespace ChromiumBrowser
         public void InitializeBrowser()
         {
             Cef.Initialize(new CefSettings());
-            //browser = new ChromiumWebBrowser("www.google.com");
-            //this.Controls.Add(browser);
-            //browser.Dock = DockStyle.Fill;
         }
 
         private void buttonGo_Click(object sender, EventArgs e)
@@ -46,6 +43,21 @@ namespace ChromiumBrowser
         private void Browser_Resize(object sender, EventArgs e)
         {
             Tabs.Height = ClientRectangle.Height - 50;
+        }
+
+        private void buttonAddTab_Click(object sender, EventArgs e)
+        {
+            AddBrowserTab();
+        }
+
+        private void AddBrowserTab()
+        {
+            TabPage newTab = new TabPage();
+            newTab.Text = "tab";
+            Tabs.Controls.Add(newTab);
+            browser = new ChromiumWebBrowser("www.google.com");
+            newTab.Controls.Add(browser);
+            browser.Dock = DockStyle.Fill;
         }
     }
 }
