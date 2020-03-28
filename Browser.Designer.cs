@@ -34,6 +34,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.buttonAddTab = new System.Windows.Forms.Button();
+            this.buttonRefresh = new System.Windows.Forms.Button();
             this.Tabs.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,11 +96,23 @@
             this.buttonAddTab.UseVisualStyleBackColor = true;
             this.buttonAddTab.Click += new System.EventHandler(this.buttonAddTab_Click);
             // 
+            // buttonRefresh
+            // 
+            this.buttonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRefresh.Location = new System.Drawing.Point(475, 12);
+            this.buttonRefresh.Name = "buttonRefresh";
+            this.buttonRefresh.Size = new System.Drawing.Size(49, 41);
+            this.buttonRefresh.TabIndex = 4;
+            this.buttonRefresh.Text = "🗘";
+            this.buttonRefresh.UseVisualStyleBackColor = true;
+            this.buttonRefresh.Click += new System.EventHandler(this.buttonRefresh_Click);
+            // 
             // Browser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(831, 482);
+            this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonAddTab);
             this.Controls.Add(this.Tabs);
             this.Controls.Add(this.AddressBar);
@@ -121,6 +134,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button buttonAddTab;
+        private System.Windows.Forms.Button buttonRefresh;
     }
 }
 
