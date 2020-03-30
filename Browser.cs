@@ -27,11 +27,6 @@ namespace ChromiumBrowser
             Cef.Initialize(new CefSettings());
         }
 
-        private void buttonGo_Click(object sender, EventArgs e)
-        {
-            browser.Load(AddressBar.Text);
-        }
-
         private void InitializeTabs()
         {
             Tabs.Dock = DockStyle.Bottom;
@@ -50,12 +45,9 @@ namespace ChromiumBrowser
             newTab.Controls.Add(browser);
             Tabs.Controls.Add(newTab);
             browser.Dock = DockStyle.Fill;
+            Tabs.SelectedTab = newTab;
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
-        {
-            AddBrowserTab();
-        }
 
         private void Browser_Resize(object sender, EventArgs e)
         {
@@ -68,6 +60,36 @@ namespace ChromiumBrowser
             {
                 MessageBox.Show("Right click!");
             }
+        }
+
+        private void goButton_Click(object sender, EventArgs e)
+        {
+            LoadIntoActiveBrowser();
+        }
+
+        private void LoadIntoActiveBrowser()
+        {
+            ChromiumWebBrowser activeBrowser;
+            activeBrowser = (ChromiumWebBrowser)Tabs.SelectedTab.Controls[0];
+            activeBrowser.Load(addressBar.Text);
+        }
+
+        private void addTab_Click(object sender, EventArgs e)
+        {
+            AddBrowserTab();
+        }
+
+        private void addressBar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                LoadIntoActiveBrowser();
+            }
+        }
+
+        private void addressBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            addressBar.SelectAll();
         }
     }
 }
