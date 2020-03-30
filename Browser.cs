@@ -56,9 +56,16 @@ namespace ChromiumBrowser
 
         private void Tabs_MouseClick(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Middle)
             {
-                MessageBox.Show("Right click!");
+                for (int i = 0; i < Tabs.TabCount; ++i)
+                {
+                    if (Tabs.GetTabRect(i).Contains(e.Location))
+                    {
+                        Tabs.TabPages[i].Dispose();
+                        break;
+                    }
+                }
             }
         }
 
@@ -70,8 +77,18 @@ namespace ChromiumBrowser
         private void LoadIntoActiveBrowser()
         {
             ChromiumWebBrowser activeBrowser;
-            activeBrowser = (ChromiumWebBrowser)Tabs.SelectedTab.Controls[0];
-            activeBrowser.Load(addressBar.Text);
+            
+            try
+            {
+                activeBrowser = (ChromiumWebBrowser)Tabs.SelectedTab.Controls[0];
+                activeBrowser.Load(addressBar.Text);
+            }
+            catch
+            {
+                AddBrowserTab();
+                activeBrowser = (ChromiumWebBrowser)Tabs.SelectedTab.Controls[0];
+                activeBrowser.Load(addressBar.Text);
+            }            
         }
 
         private void addTab_Click(object sender, EventArgs e)
@@ -101,8 +118,9 @@ namespace ChromiumBrowser
         {
             try
             {
-                
+                int selectedTabIndex = Tabs.SelectedIndex;
                 Tabs.SelectedTab.Dispose();
+                Tabs.SelectedTab = Tabs.TabPages[selectedTabIndex-1];
             }
             catch
             {
