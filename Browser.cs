@@ -91,5 +91,23 @@ namespace ChromiumBrowser
         {
             addressBar.SelectAll();
         }
+
+        private void deleteTab_Click(object sender, EventArgs e)
+        {
+            RemoveActiveBrowserTab();
+        }
+
+        private void RemoveActiveBrowserTab()
+        {
+            try
+            {
+                
+                Tabs.SelectedTab.Dispose();
+            }
+            catch
+            {
+
+            }        
+        }
     }
 }

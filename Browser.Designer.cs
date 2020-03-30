@@ -36,6 +36,10 @@
             this.goButton = new System.Windows.Forms.ToolStripButton();
             this.addressBar = new System.Windows.Forms.ToolStripTextBox();
             this.addTab = new System.Windows.Forms.ToolStripButton();
+            this.refreshButton = new System.Windows.Forms.ToolStripButton();
+            this.backButton = new System.Windows.Forms.ToolStripButton();
+            this.forwardButton = new System.Windows.Forms.ToolStripButton();
+            this.deleteTab = new System.Windows.Forms.ToolStripButton();
             this.Tabs.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +81,11 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.goButton,
             this.addressBar,
-            this.addTab});
+            this.addTab,
+            this.deleteTab,
+            this.refreshButton,
+            this.backButton,
+            this.forwardButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 27);
@@ -95,7 +103,6 @@
             // 
             // addressBar
             // 
-            this.addressBar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.addressBar.Name = "addressBar";
             this.addressBar.Size = new System.Drawing.Size(400, 27);
             this.addressBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.addressBar_KeyDown);
@@ -109,6 +116,39 @@
             this.addTab.Size = new System.Drawing.Size(43, 24);
             this.addTab.Text = "+";
             this.addTab.Click += new System.EventHandler(this.addTab_Click);
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Image = ((System.Drawing.Image)(resources.GetObject("refreshButton.Image")));
+            this.refreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(82, 24);
+            this.refreshButton.Text = "Refresh";
+            // 
+            // backButton
+            // 
+            this.backButton.Image = ((System.Drawing.Image)(resources.GetObject("backButton.Image")));
+            this.backButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(64, 24);
+            this.backButton.Text = "Back";
+            // 
+            // forwardButton
+            // 
+            this.forwardButton.Image = ((System.Drawing.Image)(resources.GetObject("forwardButton.Image")));
+            this.forwardButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.forwardButton.Name = "forwardButton";
+            this.forwardButton.Size = new System.Drawing.Size(87, 24);
+            this.forwardButton.Text = "Forward";
+            // 
+            // deleteTab
+            // 
+            this.deleteTab.Image = ((System.Drawing.Image)(resources.GetObject("deleteTab.Image")));
+            this.deleteTab.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteTab.Name = "deleteTab";
+            this.deleteTab.Size = new System.Drawing.Size(39, 24);
+            this.deleteTab.Text = "-";
+            this.deleteTab.Click += new System.EventHandler(this.deleteTab_Click);
             // 
             // Browser
             // 
@@ -136,6 +176,10 @@
         private System.Windows.Forms.ToolStripButton goButton;
         private System.Windows.Forms.ToolStripTextBox addressBar;
         private System.Windows.Forms.ToolStripButton addTab;
+        private System.Windows.Forms.ToolStripButton deleteTab;
+        private System.Windows.Forms.ToolStripButton refreshButton;
+        private System.Windows.Forms.ToolStripButton backButton;
+        private System.Windows.Forms.ToolStripButton forwardButton;
     }
 }
 
