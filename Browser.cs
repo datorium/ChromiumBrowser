@@ -56,6 +56,24 @@ namespace ChromiumBrowser
             newTab.Controls.Add(browser);
             browser.Dock = DockStyle.Fill;
             Tabs.SelectedTab = newTab;
+            browser.AddressChanged += Browser_AddressChanged;
+            browser.TitleChanged += Browser_TitleChanged;
+        }
+
+        private void Browser_TitleChanged(object sender, TitleChangedEventArgs e)
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                Tabs.SelectedTab.Text = e.Title;
+            }));
+        }
+
+        private void Browser_AddressChanged(object sender, AddressChangedEventArgs e)
+        {
+            this.Invoke(new MethodInvoker(() =>
+            {
+                AddressBar.Text = e.Address;
+            }));
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
