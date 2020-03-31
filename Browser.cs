@@ -29,17 +29,12 @@ namespace ChromiumBrowser
             Tabs.Dock = DockStyle.Bottom;
             Tabs.Height = ClientRectangle.Height - 50;
             Tabs.TabPages.Clear();
-            AddBrowserTab();
+            AddBrowserTab("www.google.com");
         }
 
         public void InitializeBrowser()
         {
             Cef.Initialize(new CefSettings());
-        }
-
-        private void buttonGo_Click(object sender, EventArgs e)
-        {
-            browser.Load(AddressBar.Text);
         }
 
         private void Browser_Resize(object sender, EventArgs e)
@@ -49,17 +44,18 @@ namespace ChromiumBrowser
 
         private void buttonAddTab_Click(object sender, EventArgs e)
         {
-            AddBrowserTab();
+            AddBrowserTab("www.google.com");
         }
 
-        private void AddBrowserTab()
+        private void AddBrowserTab(string defaultURL)
         {
             TabPage newTab = new TabPage();
             newTab.Text = "tab";
             Tabs.Controls.Add(newTab);
-            browser = new ChromiumWebBrowser("www.google.com");
+            browser = new ChromiumWebBrowser(defaultURL);
             newTab.Controls.Add(browser);
             browser.Dock = DockStyle.Fill;
+            Tabs.SelectedTab = newTab;
         }
 
         private void buttonRefresh_Click(object sender, EventArgs e)
@@ -67,6 +63,77 @@ namespace ChromiumBrowser
             ChromiumWebBrowser br;
             br = (ChromiumWebBrowser)Tabs.SelectedTab.Controls[0];
             br.Reload();
+        }
+
+        private void GoButton_Click(object sender, EventArgs e)
+        {
+            LoadToSelectedBrowser();
+        }
+
+        private void LoadToSelectedBrowser()
+        {
+            try
+            {
+                var selectedBrowser = (ChromiumWebBrowser)Tabs.SelectedTab.Controls[0];
+                selectedBrowser.Load(AddressBar.Text);
+            }
+            catch
+            {
+                AddBrowserTab(AddressBar.Text);               
+            }
+        }
+
+        private void AddTabButton_Click(object sender, EventArgs e)
+        {
+            AddBrowserTab("www.google.com");
+        }
+
+        private void RemoveTabButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int selectedTabIndex = Tabs.SelectedIndex;
+                Tabs.SelectedTab.Dispose();
+                Tabs.SelectedIndex = selectedTabIndex - 1;
+            }
+            catch
+            {
+                
+            }
+        }
+
+        private void AddressBar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                LoadToSelectedBrowser();
+            }
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var selectedBrowser = (ChromiumWebBrowser)Tabs.SelectedTab.Controls[0];
+                selectedBrowser.Back();
+            }
+            catch
+            {
+                
+            }
+        }
+
+        private void ForwardButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var selectedBrowser = (ChromiumWebBrowser)Tabs.SelectedTab.Controls[0];
+                selectedBrowser.Forward();
+            }
+            catch
+            {
+
+            }
         }
     }
 }

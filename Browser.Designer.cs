@@ -35,7 +35,10 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.GoButton = new System.Windows.Forms.ToolStripButton();
             this.AddressBar = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.AddTabButton = new System.Windows.Forms.ToolStripButton();
+            this.RemoveTabButton = new System.Windows.Forms.ToolStripButton();
+            this.BackButton = new System.Windows.Forms.ToolStripButton();
+            this.ForwardButton = new System.Windows.Forms.ToolStripButton();
             this.Tabs.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +68,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(799, 367);
+            this.tabPage2.Size = new System.Drawing.Size(799, 398);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -76,7 +79,10 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.GoButton,
             this.AddressBar,
-            this.toolStripButton1});
+            this.AddTabButton,
+            this.RemoveTabButton,
+            this.BackButton,
+            this.ForwardButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(831, 27);
@@ -90,20 +96,50 @@
             this.GoButton.Name = "GoButton";
             this.GoButton.Size = new System.Drawing.Size(52, 24);
             this.GoButton.Text = "Go";
+            this.GoButton.Click += new System.EventHandler(this.GoButton_Click);
             // 
             // AddressBar
             // 
+            this.AddressBar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.AddressBar.Name = "AddressBar";
             this.AddressBar.Size = new System.Drawing.Size(400, 27);
+            this.AddressBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AddressBar_KeyDown);
             // 
-            // toolStripButton1
+            // AddTabButton
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.AddTabButton.Image = ((System.Drawing.Image)(resources.GetObject("AddTabButton.Image")));
+            this.AddTabButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.AddTabButton.Name = "AddTabButton";
+            this.AddTabButton.Size = new System.Drawing.Size(43, 24);
+            this.AddTabButton.Text = "+";
+            this.AddTabButton.Click += new System.EventHandler(this.AddTabButton_Click);
+            // 
+            // RemoveTabButton
+            // 
+            this.RemoveTabButton.Image = ((System.Drawing.Image)(resources.GetObject("RemoveTabButton.Image")));
+            this.RemoveTabButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.RemoveTabButton.Name = "RemoveTabButton";
+            this.RemoveTabButton.Size = new System.Drawing.Size(39, 24);
+            this.RemoveTabButton.Text = "-";
+            this.RemoveTabButton.Click += new System.EventHandler(this.RemoveTabButton_Click);
+            // 
+            // BackButton
+            // 
+            this.BackButton.Image = ((System.Drawing.Image)(resources.GetObject("BackButton.Image")));
+            this.BackButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(64, 24);
+            this.BackButton.Text = "Back";
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
+            // ForwardButton
+            // 
+            this.ForwardButton.Image = ((System.Drawing.Image)(resources.GetObject("ForwardButton.Image")));
+            this.ForwardButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ForwardButton.Name = "ForwardButton";
+            this.ForwardButton.Size = new System.Drawing.Size(87, 24);
+            this.ForwardButton.Text = "Forward";
+            this.ForwardButton.Click += new System.EventHandler(this.ForwardButton_Click);
             // 
             // Browser
             // 
@@ -130,7 +166,10 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton GoButton;
         private System.Windows.Forms.ToolStripTextBox AddressBar;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton AddTabButton;
+        private System.Windows.Forms.ToolStripButton RemoveTabButton;
+        private System.Windows.Forms.ToolStripButton BackButton;
+        private System.Windows.Forms.ToolStripButton ForwardButton;
     }
 }
 
