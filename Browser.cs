@@ -57,19 +57,21 @@ namespace ChromiumBrowser
             browser.Dock = DockStyle.Fill;
             Tabs.SelectedTab = newTab;
             browser.AddressChanged += Browser_AddressChanged;
-            browser.TitleChanged += Browser_TitleChanged;
+            browser.TitleChanged += Browser_TitleChanged;  
         }
 
         private void Browser_TitleChanged(object sender, TitleChangedEventArgs e)
         {
+            var selectedBrowser = (ChromiumWebBrowser)sender;
             this.Invoke(new MethodInvoker(() =>
             {
-                Tabs.SelectedTab.Text = e.Title;
+                selectedBrowser.Parent.Text = e.Title;
             }));
         }
 
         private void Browser_AddressChanged(object sender, AddressChangedEventArgs e)
         {
+            var selectedBrowser = (ChromiumWebBrowser)sender;
             this.Invoke(new MethodInvoker(() =>
             {
                 AddressBar.Text = e.Address;
